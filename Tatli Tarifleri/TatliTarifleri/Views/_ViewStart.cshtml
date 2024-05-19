@@ -1,0 +1,15 @@
+﻿@inject ICategoryServices CategoryService
+@inject IKullaniciServices UserService
+
+@{
+    Layout = "_Layout";
+
+    if (Url.ActionContext.HttpContext.Session.GetInt32("UserID") != null)
+    {
+        var kategoriler = CategoryService.GetKategoriler();
+        var userId = Url.ActionContext.HttpContext.Session.GetInt32("UserID");
+        ViewData["CategoryModel"] = kategoriler;
+        var yetki = UserService.GetKullaniciID((int)userId);
+        ViewData["KullaniciYetki"] = yetki;
+    }
+}

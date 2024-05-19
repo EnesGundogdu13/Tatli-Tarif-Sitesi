@@ -1,0 +1,22 @@
+﻿@model Kategoriler
+@{
+    ViewData["Title"] = "Kategori Düzenle";
+}
+
+<div class="container shadow p-5">
+    <div class="row  pb-2">
+        <h1>Kategori Düzenle</h1>
+    </div>
+
+
+    <form method="post" class="form-floating" asp-action="Edit">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" asp-for="Ad" placeholder="Kategori adını yazınız." />
+            <label asp-for="Ad"></label>
+            <span asp-validation-for="Ad" class="alert-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Kategori Düzenle</button>
+        <a asp-controller="Kategori" asp-action="Index" class="btn btn-primary">Geri Dön</a>
+    </form>
+</div>
